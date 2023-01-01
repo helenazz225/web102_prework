@@ -181,6 +181,11 @@ descriptionContainer.append(unfundedDescription);
 const firstGameContainer = document.getElementById("first-game");
 const secondGameContainer = document.getElementById("second-game");
 
+// since .sort is mutating the original GAMES_JSON array, after this part of the code is run, all funded/unfunded/allgames lists will be in funded sorted order
+// if we want to retain the original order, we can use [...GAMES_JSON] to create a copy of the og array that gets mutated
+// if we want the games to show up in order of funding, keep GAMES_JSON.sort ...
+
+// const sortedGames =  [...GAMES_JSON].sort( (item1, item2) => {
 const sortedGames =  GAMES_JSON.sort( (item1, item2) => {
     return item2.pledged - item1.pledged;
 });
