@@ -29,7 +29,7 @@ Here's a walkthrough of implemented features:
 <img src='walkthrough.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 <!-- Replace this with whatever GIF tool you used! -->
-GIF created with ...  
+GIF created with Kap
 <!-- Recommended tools:
 [Kap](https://getkap.co/) for macOS
 [ScreenToGif](https://www.screentogif.com/) for Windows
@@ -38,6 +38,11 @@ GIF created with ...
 ## Notes
 
 Describe any challenges encountered while building the app.
+
+The biggest challenge I faced was when pushing my final changes to git. My first two pushes went well but I encountered an issue when pushing the walkthrough gif file. The first walkthrough gif file I made to show the features I implemented exceeded github's max file size. Because of this, the push failed. I deleted the file locally but it was still there in my history so every time I tried to push new commits, it would fail due to this initial gif file. I had to undo commits to before that first file using git reset, unstage that file, and then re-commit everything. This fixed the issue and I was able to push a smaller walkthrough gif file to the repo and add it to the README.
+
+Most of the javascript, css, and html changes were a good review and I did not face too many difficulties here. The main part that I got stuck on for a bit was that the .sort function on GAMES_JSON array would mutate the original GAMES_JSON array. The list of games would intially load in the original, games order because the function to add all these games was first called before the GAMES_JSON array got sorted. However, after this, when any of the buttons were pressed to filter and sort the games, or to show all games, it would all be in the new sorted order. I realized that the order of the games would change after the initial loading of the site because I had forgotton that .sort would mutate the original array. However, once I figured this out, I changed GAMES_JSON.sort to [...GAMES_JSON].sort so that this would create a shallow copy of GAMES_JSON that would get sorted and the original array would not change. I implemented an extra button, 'Show All Games in Funding Order' so that the 'Show All Games' button would preserve the original order of the games while the new button would show the sorted order.
+
 
 ## License
 
