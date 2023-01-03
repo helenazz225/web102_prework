@@ -122,11 +122,19 @@ function filterFundedOnly() {
 
     // use the function we previously created to add unfunded games to the DOM
     addGamesToPage(funded);
-    console.log(funded.length);
 }
 
-// filterUnfundedOnly();
-// filterFundedOnly();
+// show all games in order of funding
+function showFundedOrderGames() {
+    deleteChildElements(gamesContainer);
+
+    const sorted =  [...GAMES_JSON].sort( (item1, item2) => {
+        return item2.pledged - item1.pledged;
+    });
+
+    // sortedGames is an array that is GAMES_JSON sorted in descending funding
+    addGamesToPage(sorted);
+}
 
 // show all games
 function showAllGames() {
@@ -140,11 +148,13 @@ function showAllGames() {
 const unfundedBtn = document.getElementById("unfunded-btn");
 const fundedBtn = document.getElementById("funded-btn");
 const allBtn = document.getElementById("all-btn");
+const fundedOrderBtn = document.getElementById("all-funded-order-btn");
 
 // add event listeners with the correct functions to each button
 unfundedBtn.addEventListener("click", filterUnfundedOnly);
 fundedBtn.addEventListener("click", filterFundedOnly);
 allBtn.addEventListener("click", showAllGames);
+fundedOrderBtn.addEventListener("click", showFundedOrderGames);
 
 /*************************************************************************************
  * Challenge 6: Add more information at the top of the page about the company.
@@ -185,8 +195,8 @@ const secondGameContainer = document.getElementById("second-game");
 // if we want to retain the original order, we can use [...GAMES_JSON] to create a copy of the og array that gets mutated
 // if we want the games to show up in order of funding, keep GAMES_JSON.sort ...
 
-// const sortedGames =  [...GAMES_JSON].sort( (item1, item2) => {
-const sortedGames =  GAMES_JSON.sort( (item1, item2) => {
+const sortedGames =  [...GAMES_JSON].sort( (item1, item2) => {
+// const sortedGames =  GAMES_JSON.sort( (item1, item2) => {
     return item2.pledged - item1.pledged;
 });
 

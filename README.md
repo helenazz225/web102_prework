@@ -1,10 +1,10 @@
 # WEB102 Prework - *Sea Monster Crowdfunding Games Display*
 
-Submitted by: **Helena Zhan**
+Submitted by: **Helena Zhang**
 
 **Sea Monster Crowdfunding Games Display** is a website for the company Sea Monster Crowdfunding that displays information about the games they have funded.
 
-Time spent: **2.5** hours spent in total
+Time spent: **3.5** hours spent in total
 
 ## Required Features
 
@@ -20,6 +20,7 @@ The following **optional** features are implemented:
 * [x] A search bar and search button under the Our Games secton allows the user to enter in keywords and search for games by name after pressing the search button (not case sensitive)
 * [x] Text in the header ('View Our Games') will navigate user to the Our Games section upon pressing the text
 * [x] Changes to the style.css file sets hover property for buttons and adds blur shadow-box to the game cards and header
+* [x] Show All Games in Order of Funding button is created to show order of games in terms of descending funding (original three buttons show unfunded, funded, and all games in original order of GAMES_JSON array)
 
 ## Video Walkthrough
 
